@@ -1,0 +1,10 @@
+global:
+  ingress:
+    enabled: true
+    host: "tractusx.local"
+
+edc-dataplane:
+  enabled: true
+
+postgres:
+  enabled: true

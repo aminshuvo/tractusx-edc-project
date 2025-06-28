@@ -1,0 +1,6 @@
+apiVersion: v2
+name: data-provider
+description: Sample data provider for EDC demo
+version: 0.1.0
+appVersion: "1.0"
+type: application

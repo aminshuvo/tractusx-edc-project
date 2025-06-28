@@ -1,0 +1,22 @@
+name: Deploy to Minikube
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Kubeconfig
+      run: |
+        mkdir -p ~/.kube
+        echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 --decode > ~/.kube/config
+
+    - name: Helm Deploys
+      run: |
+        helm upgrade --install tractusx ./helm/umbrella -f ./helm/umbrella/values-dev.yaml -n tractusx
+        helm upgrade --install edc-standalone ./helm/edc-standalone -f ./helm/edc-standalone/values.yaml -n edc
+        helm upgrade --install data-provider ./helm/data-provider -n edc

@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: edc-standalone
+  namespace: argocd
+spec:
+  project: default
+  source:
+    path: helm/edc-standalone
+    repoURL: https://github.com/your-repo/tractusx-edc-project.git
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+      - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: edc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

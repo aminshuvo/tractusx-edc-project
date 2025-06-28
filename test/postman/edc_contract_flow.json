@@ -1,0 +1,20 @@
+{
+  "info": {
+    "name": "EDC Contract Flow",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Catalog Request",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://edc-standalone.local/management/v2/catalog",
+          "protocol": "http",
+          "host": ["edc-standalone.local"],
+          "path": ["management", "v2", "catalog"]
+        }
+      }
+    }
+  ]
+}

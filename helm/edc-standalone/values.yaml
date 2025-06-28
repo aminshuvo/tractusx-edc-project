@@ -1,0 +1,7 @@
+edc:
+  controlPlane:
+    endpoint: "http://edc-standalone.local/control"
+  dataPlane:
+    endpoint: "http://edc-standalone.local/data"
+  management:
+    enabled: true
